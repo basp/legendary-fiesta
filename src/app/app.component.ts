@@ -2,9 +2,11 @@ import { Component } from '@angular/core';
 import { Generator } from './generator';
 import { State } from './state';
 import { StateService } from './state.service';
+import { ToastrService } from 'ngx-toastr';
+import { SAVE_FILE } from './common';
 import Decimal from 'break_infinity.js';
 
-const SAVE_FILE = 'sandbox.save';
+declare var $:any;
 
 const refspeed = 1000;
 const tickspeed = 1000;
@@ -21,7 +23,9 @@ export class AppComponent {
   active = 'generators';
   state: State;
 
-  constructor(private stateService: StateService) { }
+  constructor(
+    private stateService: StateService,
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.state = this.stateService.getState();
@@ -37,7 +41,7 @@ export class AppComponent {
 
     setInterval(() => {
       this.save();
-      console.log('game saved');
+      this.toastr.info('Game saved.')
     }, 30 * 1000);    
   }
 
@@ -72,13 +76,9 @@ export class AppComponent {
       this.state.generators[i].baseProduction = new Decimal(save.generators[i].baseProduction);
       this.state.generators[i].number = new Decimal(save.generators[i].number);
       this.state.generators[i].numberBought = save.generators[i].numberBought;
+      this.state.generators[i].level = save.generators[i].level;
     }
   }
-
-  reset(): void {
-    this.stateService.reset();
-    localStorage.removeItem(SAVE_FILE);
-  }  
 
   update(dt: number) {
     // The value of `dt` should be around 1000 / rate. 

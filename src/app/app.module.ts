@@ -11,6 +11,8 @@ import { FormatCostPipe } from './format-cost.pipe';
 import { FormatNumberPipe } from './format-number.pipe';
 import { FormatProductionPipe } from './format-production.pipe';
 import { FormatScorePipe } from './format-score.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { FormatScorePipe } from './format-score.pipe';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

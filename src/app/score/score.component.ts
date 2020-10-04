@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { State } from '../state';
 import { StateService } from '../state.service';
 import Decimal from 'break_infinity.js';
+import { ToastrService } from 'ngx-toastr';
 
 const baseTarget = new Decimal(1e4);
 const targetMultiplier = new Decimal(1e6);
@@ -14,7 +15,9 @@ const targetMultiplier = new Decimal(1e6);
 export class ScoreComponent implements OnInit {
   state: State;
 
-  constructor(private stateService: StateService) { }
+  constructor(
+    private stateService: StateService,
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.state = this.stateService.getState();
@@ -36,5 +39,13 @@ export class ScoreComponent implements OnInit {
 
   evolve(): void {
     this.stateService.evolve();
+    for(let g of this.state.generators) {
+      if(g.requiredLevel === this.state.level) {
+        this.toastr.info(`${g.name} unlocked!`, 'New generator', {
+          disableTimeOut: true,
+          closeButton: true
+        });
+      }
+    }
   }
 }

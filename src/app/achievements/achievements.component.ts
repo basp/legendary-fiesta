@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+const ACHIEVEMENTS = [];
+
 @Component({
   selector: 'app-achievements',
   templateUrl: './achievements.component.html',
