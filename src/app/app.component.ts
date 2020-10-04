@@ -69,7 +69,7 @@ export class AppComponent {
     }, interval);
 
     // We'll save every 30 seconds which seems reasonable.
-    const saveInterval = 30 * 1000;
+    const saveInterval = 10 * 1000;
     setInterval(() => {
       this.save();
       this.toastr.info('Game saved.', null, {
@@ -77,7 +77,7 @@ export class AppComponent {
       })
       .onTap
       .pipe(take(1))
-      .subscribe(() => this.toasterClickHandler());
+      .subscribe(() => this.toasterClickHandler());  
     }, saveInterval);    
   }
 
@@ -100,34 +100,11 @@ export class AppComponent {
   }  
 
   save(): void {
-    localStorage.setItem(SAVE_FILE, JSON.stringify(this.state));
+    this.stateService.save();
   }
 
   load(): void {
-    let json = localStorage.getItem(SAVE_FILE);
-
-    // Make sure we actually have a save file, otherwise just
-    // return early and do nothing.
-    if(!json) {
-      return;
-    }
-
-    // The rest of this code just copies the values from our
-    // save file into the actual state. This code is quite
-    // error prone and may lead to really weird stuff if you
-    // forget anything.
-    let save = JSON.parse(json);     
-    this.state.energy = new Decimal(save.energy);
-    this.state.lastUpdate = save.lastUpdate;
-    this.state.level = save.level;
-    this.state.toasters = save.toasters;
-
-    for (let i = 0; i < this.state.generators.length; i++) {
-      this.state.generators[i].baseProduction = new Decimal(save.generators[i].baseProduction);
-      this.state.generators[i].number = new Decimal(save.generators[i].number);
-      this.state.generators[i].numberBought = save.generators[i].numberBought;
-      this.state.generators[i].level = save.generators[i].level;
-    }
+    this.stateService.load();
   }
 
   update(dt: number) {
