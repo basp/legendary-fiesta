@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { take } from 'rxjs/operators';
 import { Generator } from './generator';
 import { State } from './state';
 import { StateService } from './state.service';
@@ -73,8 +74,15 @@ export class AppComponent {
       this.save();
       this.toastr.info('Game saved.', null, {
         closeButton: false,
-      });
+      })
+      .onTap
+      .pipe(take(1))
+      .subscribe(() => this.toasterClickHandler());
     }, saveInterval);    
+  }
+
+  toasterClickHandler(): void {
+    this.state.toasters += 1;
   }
 
   // Returns the head of our generator list. This is the

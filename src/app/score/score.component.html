@@ -1,8 +1,14 @@
+<style>
+  .progress-bar {
+    color: white;
+  }
+</style>
 <div>
   <h1 class="text-center">
     <code>{{state.energy | formatScore}}</code>
   </h1>
   <h5 class="text-center">Generating <code>{{state.output | formatNumber}}</code> joule per second.</h5>
+  <h5 class="text-center">Toasters: <code>{{state.toasters}}</code></h5>
 </div>
 <div class="progress mb-2 mt-2" style="height: 20px">
   <div class="progress-bar progress-bar-striped progress-bar-animated" 

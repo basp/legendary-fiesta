@@ -3,6 +3,7 @@ import { State } from '../state';
 import { StateService } from '../state.service';
 import Decimal from 'break_infinity.js';
 import { ToastrService } from 'ngx-toastr';
+import { take } from 'rxjs/operators';
 
 const baseTarget = new Decimal(1e4);
 const targetMultiplier = new Decimal(1e6);
@@ -39,13 +40,21 @@ export class ScoreComponent implements OnInit {
 
   evolve(): void {
     this.stateService.evolve();
-    for(let g of this.state.generators) {
-      if(g.requiredLevel === this.state.level) {
-        this.toastr.info(`${g.name} unlocked!`, 'New generator', {
-          disableTimeOut: true,
-          closeButton: false
-        });
+    for (let g of this.state.generators) {
+      if (g.requiredLevel === this.state.level) {
+        this.toastr
+          .info(`${g.name} unlocked!`, 'New generator', {
+            disableTimeOut: true,
+            closeButton: false
+          })
+          .onTap
+          .pipe(take(1))
+          .subscribe(() => this.toasterClickHandler());
       }
     }
+  }
+
+  toasterClickHandler(): void {
+    this.state.toasters += 1;
   }
 }

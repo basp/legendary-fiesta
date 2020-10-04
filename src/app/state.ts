@@ -7,6 +7,7 @@ export class State {
   public output = new Decimal(0);
   public interval = new Decimal(1000);
   public level = 0;
+  public toasters = 0;
   public generators = [
     new Generator(
       0,
