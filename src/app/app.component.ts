@@ -120,6 +120,7 @@ export class AppComponent {
     this.state.energy = new Decimal(save.energy);
     this.state.lastUpdate = save.lastUpdate;
     this.state.level = save.level;
+    this.state.toasters = save.toasters;
 
     for (let i = 0; i < this.state.generators.length; i++) {
       this.state.generators[i].baseProduction = new Decimal(save.generators[i].baseProduction);
