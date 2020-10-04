@@ -3,8 +3,8 @@ import { State } from '../state';
 import { StateService } from '../state.service';
 import Decimal from 'break_infinity.js';
 
-const baseTarget = new Decimal(1e3);
-const targetMultiplier = new Decimal(1);
+const baseTarget = new Decimal(1e4);
+const targetMultiplier = new Decimal(1e6);
 
 @Component({
   selector: 'app-score',
