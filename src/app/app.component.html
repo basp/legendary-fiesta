@@ -2,9 +2,12 @@
   <app-score></app-score>
   <nav>
     <div class="nav nav-tabs mb-2" id="nav-tab" role="tablist">
-      <a class="nav-item nav-link active" id="nav-generators-tab" data-toggle="tab" href="#nav-generators" role="tab" aria-controls="nav-generators" aria-selected="true">Generators</a>
-      <a class="nav-item nav-link" id="nav-achievements-tab" data-toggle="tab" href="#nav-achievements" role="tab" aria-controls="nav-achievements" aria-selected="false">Achievements</a>
-      <a class="nav-item nav-link" id="nav-options-tab" data-toggle="tab" href="#nav-options" role="tab" aria-controls="nav-options" aria-selected="false">Options</a>
+      <a class="nav-item nav-link active" id="nav-generators-tab" data-toggle="tab" href="#nav-generators" role="tab"
+        aria-controls="nav-generators" aria-selected="true">Generators</a>
+      <a class="nav-item nav-link" id="nav-achievements-tab" data-toggle="tab" href="#nav-achievements" role="tab"
+        aria-controls="nav-achievements" aria-selected="false">Achievements</a>
+      <a class="nav-item nav-link" id="nav-options-tab" data-toggle="tab" href="#nav-options" role="tab"
+        aria-controls="nav-options" aria-selected="false">Options</a>
     </div>
   </nav>
   <div class="tab-content" id="nav-tabContent">
@@ -18,4 +21,8 @@
       <app-options></app-options>
     </div>
   </div>
+  <hr />
+  <button type="button" class="btn btn-primary btn-block btn-danger" (click)="reset()">
+    Reset
+  </button>
 </div>

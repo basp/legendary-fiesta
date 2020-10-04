@@ -1,3 +1,43 @@
-<div *ngFor="let g of state.generators">
-  <span>{{g.name}}</span>
+<div class="row align-items-center" *ngFor="let g of generators()">
+  <div class="col-sm pt-1" style="font-family: 'Secular One', sans-serif; font-size: 1.1em">
+    {{g.name}}
+  </div>
+  <div class="col-sm pt-1 text-right">
+    {{g.number | formatNumber}}
+  </div>
+  <div class="col-sm pt-1 text-right">
+    x{{g.production() | formatProduction}}
+  </div>
+  <div class="col-sm pt-1">
+    <button type="button" 
+      [disabled]="!g.isBuyEnabled(state)" 
+      class="btn btn-secondary btn-block"
+      (click)="g.buy(state)">
+      <span class="badge badge-light">{{g.purchased()}}</span>
+      {{g.cost() | formatCost }}
+    </button>
+  </div>
+  <div class="col-sm pt-1">
+    <button type="button" 
+      [disabled]="!g.isBuyTo10Enabled(state)" 
+      class="btn btn-primary btn-block"
+      (click)="g.buyTo10(state)">
+      {{g.costTo10() | formatCost }}
+    </button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm pt-1"></div>
+  <div class="col-sm pt-1"></div>
+  <div class="col-sm pt-1"></div>
+  <div class="col-sm pt-1"></div>
+  <div class="col-sm pt-1">
+    <button 
+      type="button" 
+      [disabled]="!isMaxEnabled()" 
+      class="btn btn-primary btn-block"
+      (click)="max()">
+      Max
+    </button>
+  </div>
 </div>

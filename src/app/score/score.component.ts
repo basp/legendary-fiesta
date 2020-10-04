@@ -33,4 +33,18 @@ export class ScoreComponent implements OnInit {
     let t = this.target().plus(1).log10();
     return Math.min(e / t * 100, 100);
   }
+
+  evolve(): void {
+    const level = this.state.level;
+    this.state = new State();
+    this.state.level = level + 1;
+    for(let g of this.state.generators) {
+      if(g.requiredLevel >= this.state.level) {
+        continue;
+      }
+
+      let gain = this.state.level - g.requiredLevel;
+      g.baseProduction = g.baseProduction.plus(gain * 0.5);
+    }
+  }
 }
