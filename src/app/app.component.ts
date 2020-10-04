@@ -9,7 +9,7 @@ import Decimal from 'break_infinity.js';
 // In order to increase game speed without increasing
 // the actual framerate we'll use `refspeed` and `tickspeed`.
 // At the start of the game `refspeed` and `tickspeed` should
-// be equal. This will yield a production value of 1.
+// be equal. This will yield a production multiplier of 1.
 // During the game, `tickspeed` might become lower and thus the 
 // ratio of `refspeed` divided by `tickspeed` will be greater
 // than one. If production is then multiplied with this value
@@ -21,7 +21,9 @@ const tickspeed = 1000;
 // times per second).
 const rate = 10;
 
-// This is the duration of each "frame" in milliseconds.
+// This is the expect duration of each "frame" in milliseconds if
+// the game would run on an infinitely fast CPU with 100% accurate
+// browser scheduling.
 const interval = 1000 / rate;
 
 @Component({
@@ -38,6 +40,8 @@ export class AppComponent {
     private toastr: ToastrService) { }
 
   ngOnInit(): void {
+    // State is now shared between multiple components
+    // so we'll obtain it via a state service.
     this.state = this.stateService.getState();
 
     // We probably don't want to do this once
@@ -80,7 +84,9 @@ export class AppComponent {
   }
 
   // Return all generators (in order) except the main
-  // generator (which is returned by `head`).
+  // generator (which is returned by `head`). All generators
+  // except the main generator produce other generators
+  // on tier below them.
   tail(): Generator[] {
     return this.state.generators.slice(1);
   }  
