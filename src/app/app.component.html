@@ -1,0 +1,21 @@
+<div class="container">
+  <nav class="nav nav-pills">
+    <a 
+      class="nav-link" 
+      [class.active]="active == 'generators'"
+      (click)="select('generators')" 
+      routerLink="/generators">
+      Generators
+    </a>
+    <a 
+      class="nav-link" 
+      [class.active]="active == 'options'"
+      (click)="select('options')" 
+      routerLink="/options">
+      Options
+    </a>
+  </nav>
+  <router-outlet></router-outlet>
+  <hr/>
+  {{active}}  
+</div>
