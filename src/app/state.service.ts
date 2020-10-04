@@ -72,6 +72,7 @@ export class StateService {
     this.state.interval = def.interval;
     this.state.level = def.level;
     this.state.output = def.output;
+    this.state.toasters = def.toasters;
     for(let g of this.state.generators) {
       g.number = new Decimal(0);
       g.numberBought = 0;

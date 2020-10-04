@@ -69,7 +69,7 @@ export class AppComponent {
     }, interval);
 
     // We'll save every 30 seconds which seems reasonable.
-    const saveInterval = 10 * 1000;
+    const saveInterval = 30 * 1000;
     setInterval(() => {
       this.save();
       this.toastr.info('Game saved.', null, {

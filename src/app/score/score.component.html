@@ -8,7 +8,7 @@
     <code>{{state.energy | formatScore}}</code>
   </h1>
   <h5 class="text-center">Generating <code>{{state.output | formatNumber}}</code> joule per second.</h5>
-  <h5 class="text-center">There {{state.toasters === 1 ? 'is' : 'are'}} <code>{{state.toasters}}</code> {{state.toasters === 1 ? 'toaster' : 'toasters'}} available.</h5>
+  <h5 *ngIf="state.toasters > 0" class="text-center">There {{state.toasters === 1 ? 'is' : 'are'}} <code>{{state.toasters}}</code> {{state.toasters === 1 ? 'toaster' : 'toasters'}} available.</h5>
 </div>
 <div class="progress mb-2 mt-2" style="height: 20px">
   <div class="progress-bar progress-bar-striped progress-bar-animated" 
