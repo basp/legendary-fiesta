@@ -43,7 +43,7 @@ export class ScoreComponent implements OnInit {
     for (let g of this.state.generators) {
       if (g.requiredLevel === this.state.level) {
         this.toastr
-          .info(`${g.name} unlocked!`, 'New generator', {
+          .success(`${g.name} unlocked!`, 'New generator', {
             disableTimeOut: true,
             closeButton: false
           })
