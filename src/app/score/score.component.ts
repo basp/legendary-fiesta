@@ -3,8 +3,8 @@ import { State } from '../state';
 import { StateService } from '../state.service';
 import Decimal from 'break_infinity.js';
 
-const baseTarget = new Decimal(1e4);
-const targetMultiplier = new Decimal(1e6);
+const baseTarget = new Decimal(1e3);
+const targetMultiplier = new Decimal(1);
 
 @Component({
   selector: 'app-score',
@@ -35,16 +35,6 @@ export class ScoreComponent implements OnInit {
   }
 
   evolve(): void {
-    const level = this.state.level;
-    this.state = new State();
-    this.state.level = level + 1;
-    for(let g of this.state.generators) {
-      if(g.requiredLevel >= this.state.level) {
-        continue;
-      }
-
-      let gain = this.state.level - g.requiredLevel;
-      g.baseProduction = g.baseProduction.plus(gain * 0.5);
-    }
+    this.stateService.evolve();
   }
 }

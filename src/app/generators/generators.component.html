@@ -1,6 +1,6 @@
 <div class="row align-items-center" *ngFor="let g of generators()">
   <div class="col-sm pt-1" style="font-family: 'Secular One', sans-serif; font-size: 1.1em">
-    {{g.name}}
+    {{g.name}} ({{g.level}})
   </div>
   <div class="col-sm pt-1 text-right">
     {{g.number | formatNumber}}

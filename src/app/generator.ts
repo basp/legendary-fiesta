@@ -5,13 +5,13 @@ export class Generator {
   public number = new Decimal(0);
   public numberBought = 0;
   public level = 0;
+  public baseProduction = new Decimal(1);
 
   constructor(
     public tier: number,
     public name: string,
     public baseCost: Decimal,
     public costMultiplier: Decimal,
-    public baseProduction: Decimal,
     public requiredLevel: number) { }
 
   buy(state: State): void {
