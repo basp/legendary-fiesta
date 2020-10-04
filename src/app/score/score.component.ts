@@ -28,7 +28,7 @@ export class ScoreComponent implements OnInit {
   }
 
   progress(): number {
-    if (this.state.output.lessThanOrEqualTo(0)) {
+    if (this.state.output.lessThan(1)) {
       return 0;
     }
 
@@ -43,7 +43,7 @@ export class ScoreComponent implements OnInit {
       if(g.requiredLevel === this.state.level) {
         this.toastr.info(`${g.name} unlocked!`, 'New generator', {
           disableTimeOut: true,
-          closeButton: true
+          closeButton: false
         });
       }
     }

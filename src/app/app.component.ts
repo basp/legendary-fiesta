@@ -86,7 +86,7 @@ export class AppComponent {
   // Return all generators (in order) except the main
   // generator (which is returned by `head`). All generators
   // except the main generator produce other generators
-  // on tier below them.
+  // one tier below them.
   tail(): Generator[] {
     return this.state.generators.slice(1);
   }  
