@@ -1,0 +1,27 @@
+<div>
+  <h1 class="text-center">
+    <code>{{state.energy | formatScore}}</code>
+  </h1>
+  <h5 class="text-center">Generating <code>{{state.output | formatNumber}}</code> energy per second.</h5>
+</div>
+<div class="progress mb-2 mt-2" style="height: 20px">
+  <div class="progress-bar progress-bar-striped progress-bar-animated" 
+    role="progressbar" 
+    [style.width]="progress().toFixed(0) + '%'" 
+    [attr.aria-valuenow]="progress()" 
+    aria-valuemin="0" 
+    aria-valuemax="100">
+    {{progress().toFixed(1)}}%
+  </div>
+</div>
+<div *ngIf="progress() >= 100">
+  <button
+  type="button"
+  class="btn btn-primary btn-block"
+  (click)="evolve()">
+  Evolve
+  </button>
+</div>
+<div *ngIf="progress() < 100" class="mb-2">
+  Next evolutionary algorithm is available at <code>{{target() | formatCost}}</code> energy.
+</div>

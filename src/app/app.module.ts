@@ -4,12 +4,25 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { GeneratorsComponent } from './generators/generators.component';
 import { OptionsComponent } from './options/options.component';
+import { ScoreComponent } from './score/score.component';
+import { AchievementsComponent } from './achievements/achievements.component';
+
+import { FormatCostPipe } from './format-cost.pipe';
+import { FormatNumberPipe } from './format-number.pipe';
+import { FormatProductionPipe } from './format-production.pipe';
+import { FormatScorePipe } from './format-score.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     GeneratorsComponent,
-    OptionsComponent
+    OptionsComponent,
+    ScoreComponent,
+    AchievementsComponent,
+    FormatCostPipe,
+    FormatNumberPipe,
+    FormatProductionPipe,
+    FormatScorePipe
   ],
   imports: [
     BrowserModule,
