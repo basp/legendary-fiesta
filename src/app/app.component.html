@@ -1,5 +1,6 @@
 <style>
-  .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  .nav-pills .nav-link.active,
+  .nav-pills .show>.nav-link {
     color: white;
   }
 </style>
@@ -13,6 +14,8 @@
         aria-controls="nav-achievements" aria-selected="false">Achievements</a>
       <a class="nav-item nav-link" id="nav-options-tab" data-toggle="tab" href="#nav-options" role="tab"
         aria-controls="nav-options" aria-selected="false">Options</a>
+      <a class="nav-item nav-link" id="nav-info-tab" data-toggle="tab" href="#nav-info" role="tab"
+        aria-controls="nav-info" aria-selected="false">Info</a>
     </div>
   </nav>
   <div class="tab-content" id="nav-tabContent">
@@ -24,6 +27,55 @@
     </div>
     <div class="tab-pane fade" id="nav-options" role="tabpanel" aria-labelledby="nav-options-tab">
       <app-options></app-options>
+    </div>
+    <div class="tab-pane fade" id="nav-info" role="tabpanel" aria-labelledby="nav-info-tab">
+      <div class="row">
+        <div class="col-sm-7">
+          <blockquote class="blockquote">
+            <p class="mb-0">There are many things of which a wise man might wish to be ignorant.</p>
+            <footer class="blockquote-footer">Ralph Waldo Emerson</footer>
+          </blockquote>
+          <hr/>
+          <p>
+            The <strong>Generator</strong> generator produces energy.
+            This generator has <strong>tier</strong> zero. It is the
+            base generator.
+          </p>
+          <p>
+            Every other generator produces the generator one tier below it.
+            (i.e the generator that is one row <em>above</em> it in the
+            <strong>Generators</strong> tab).
+          </p>
+          <p>
+            For instance, a <strong>Booster</strong> (of tier <code>1</code>)
+            produces <strong>Generators</strong> (of tier <code>0</code>). You
+            might not have <strong>Booster</strong> generators yet but you will
+            soon.
+          </p>
+          <p>
+            Each generator tier starts with a <strong>base production</strong> of <code>1</code>.
+            The production will double for every <code>10</code> generators
+            you buy. This production multiplier will only apply to your current
+            <strong>algorithmic evolution</strong> level.
+          </p>
+          <p>
+            Once you reach a certain energy level you will gain a new
+            <strong>evolutionary algorithm</strong>. If you decide to <strong>evolve</strong>
+            then all generators available before evolving will <em>level up</em>.
+            Each level grants a <strong>permanent</strong> +<code>0.5</code> boost
+            to base production.
+          </p>
+          <p>
+            Evolving will also reset the amount of generators you have to
+            zero. Additionally it will reset all your generators
+            to their <strong>base production</strong> according to the evolution
+            level you have <em>after evolving</em>.
+          </p>
+          <p>
+            Basically you're starting over again but with stronger generators.
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
