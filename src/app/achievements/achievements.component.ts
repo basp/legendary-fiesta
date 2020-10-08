@@ -5,7 +5,7 @@ const QUOTES: Quote[] = [
   {
     text: 'Rivers know this: there is no hurry. We shall get there some day.',
     author: 'A.A. Milne',
-    title: null,
+    title: 'Winnie-the-Pooh',
   },
   {
     text: 'Trees that are slow to grow bear the best fruit.',
