@@ -1,8 +1,8 @@
 <div class="row">
   <div class="col-sm-12">
     <blockquote class="blockquote">
-      <p class="mb-0">Rivers know this: there is no hurry. We shall get there some day.</p>
-      <footer class="blockquote-footer">A.A. Milne<span>, <cite title="Source Title">Winnie-the-Pooh</cite></span>
+      <p class="mb-0">{{quote.text}}</p>
+      <footer class="blockquote-footer">{{quote.author}}<span *ngIf="quote.title">, <cite title="Source Title">{{quote.title}}</cite></span>
       </footer>
     </blockquote>
   </div>  

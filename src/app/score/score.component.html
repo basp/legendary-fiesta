@@ -20,7 +20,7 @@
     {{progress().toFixed(1)}}%
   </div>
 </div>
-<div *ngIf="progress() >= 100">
+<div *ngIf="progress() >= 100" class="mb-4">
   <button
   type="button"
   class="btn btn-success btn-block"
@@ -29,5 +29,5 @@
   </button>
 </div>
 <div *ngIf="progress() < 100" class="mb-2">
-  Next evolutionary algorithm at <code>{{target() | formatCost}}</code> joule.
+  next evolutionary algorithm at <code>{{target() | formatCost}}</code> joule
 </div>
