@@ -1,11 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ɵConsole } from '@angular/core';
 import { take } from 'rxjs/operators';
 import { Generator } from './generator';
 import { State } from './state';
 import { StateService } from './state.service';
 import { ToastrService } from 'ngx-toastr';
-import { SAVE_FILE } from './common';
-import Decimal from 'break_infinity.js';
 
 // In order to increase game speed without increasing
 // the actual framerate we'll use `refspeed` and `tickspeed`.
@@ -27,6 +25,41 @@ const rate = 10;
 // browser scheduling.
 const interval = 1000 / rate;
 
+interface Quote {
+  quote: string;
+  author: string;
+}
+
+const QUOTES: Quote[] = [
+  {
+    quote: 'There are many things of which a wise man might wish to be ignorant.',
+    author: 'Ralph Waldo Emerson',
+  },
+  {
+    quote: "Confidence is ignorance. If you're feeling cocky, it's because there's something you don't know.",
+    author: 'Eoin Colfer',
+  },
+  {
+    quote: 'Living is easy with eyes closed.',
+    author: 'John Lennon',
+  },
+  {
+    quote: 'Without education, we are in a horrible and deadly danger of taking educated people seriously.',
+    author: 'G.K. Chesterton',
+  },
+  {
+    quote: 'Being ignorant is not so much a shame, as being unwilling to learn.',
+    author: 'Benjamin Franklin',
+  }
+];
+
+const BANNER = 
+  ".:;.;:.         .:  ;:.      .:;.;:. .:;S;:. .:;S;:. .:  ;:.              .:;S;:. .       .: S;:.\n" +
+  "S  S  S .:;s;:' S   ' S      S  S  S S  S     /      S   ' S      S     S S  S    S:;s;:' S  S  S\n" +
+  "`:;S;:'         `:;S;:'      `:;S;:' `:;S;:' `:;S;:' `:;S;:'      `:;S;:' `:;S;:' `       `:;S :'\n";
+
+const VERSION = "0.1";
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -36,11 +69,17 @@ export class AppComponent {
   title = 'Legendary Fiesta';
   state: State;
 
+  quote = "There are many things of which a wise man might wish to be ignorant.";
+  author = "Ralph Waldo Emerson";
+
   constructor(
     private stateService: StateService,
     private toastr: ToastrService) { }
 
   ngOnInit(): void {
+    console.info(BANNER);
+    console.info(`Big Bang Cats v${VERSION}`);
+
     // State is now shared between multiple components
     // so we'll obtain it via a state service.
     this.state = this.stateService.getState();
