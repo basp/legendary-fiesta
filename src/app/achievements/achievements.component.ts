@@ -3,6 +3,11 @@ import { Quote } from '../quote';
 
 const QUOTES: Quote[] = [
   {
+    text: 'Rivers know this: there is no hurry. We shall get there some day.',
+    author: 'A.A. Milne',
+    title: null,
+  },
+  {
     text: 'Trees that are slow to grow bear the best fruit.',
     author: 'Moliere',
     title: null,
