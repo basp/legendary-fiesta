@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.3.
 
+## TODO
+* Bank toasters on evolve, make toasters "flying toasters" and after banking "available toasters".
+* Find some cool ways to spend toasters
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

@@ -25,9 +25,11 @@ export class GeneratorsComponent implements OnInit {
   }
 
   max(): void {
-    for (let g of this.generators()) {
-      if (this.state.energy.greaterThanOrEqualTo(g.costTo10())) {
-        g.buyTo10(this.state);
+    while (this.isMaxEnabled()) {
+      for (let g of this.generators()) {
+        if (this.state.energy.greaterThanOrEqualTo(g.costTo10())) {
+          g.buyTo10(this.state);
+        }
       }
     }
   }
@@ -38,5 +40,5 @@ export class GeneratorsComponent implements OnInit {
     return gens.some(function (x) {
       return x.isBuyTo10Enabled(state);
     });
-  }  
+  }
 }
