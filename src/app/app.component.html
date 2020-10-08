@@ -30,12 +30,15 @@
     </div>
     <div class="tab-pane fade" id="nav-info" role="tabpanel" aria-labelledby="nav-info-tab">
       <div class="row">
-        <div class="col-sm-7">
+        <div class="col-sm-12">
           <blockquote class="blockquote">
-            <p class="mb-0">{{quote}}</p>
-            <footer class="blockquote-footer">{{author}}</footer>
-          </blockquote>
-          <hr/>
+            <p class="mb-0">{{quote.text}}</p>
+            <footer class="blockquote-footer">{{quote.author}}<span *ngIf="quote.title">, <cite title="Source Title">{{quote.title}}</cite></span></footer>
+          </blockquote>        
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-7">
           <p>
             The <strong>Generator</strong> generator produces energy.
             This generator has <strong>tier</strong> zero. It is the

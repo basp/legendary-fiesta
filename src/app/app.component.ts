@@ -4,6 +4,7 @@ import { Generator } from './generator';
 import { State } from './state';
 import { StateService } from './state.service';
 import { ToastrService } from 'ngx-toastr';
+import { Quote } from './quote';
 
 // In order to increase game speed without increasing
 // the actual framerate we'll use `refspeed` and `tickspeed`.
@@ -25,31 +26,31 @@ const rate = 10;
 // browser scheduling.
 const interval = 1000 / rate;
 
-interface Quote {
-  quote: string;
-  author: string;
-}
-
 const QUOTES: Quote[] = [
   {
-    quote: 'There are many things of which a wise man might wish to be ignorant.',
+    text: 'There are many things of which a wise man might wish to be ignorant.',
     author: 'Ralph Waldo Emerson',
+    title: null,
   },
   {
-    quote: "Confidence is ignorance. If you're feeling cocky, it's because there's something you don't know.",
+    text: "Confidence is ignorance. If you're feeling cocky, it's because there's something you don't know.",
     author: 'Eoin Colfer',
+    title: null,
   },
   {
-    quote: 'Living is easy with eyes closed.',
+    text: 'Living is easy with eyes closed.',
     author: 'John Lennon',
+    title: null,
   },
   {
-    quote: 'Without education, we are in a horrible and deadly danger of taking educated people seriously.',
+    text: 'Without education, we are in a horrible and deadly danger of taking educated people seriously.',
     author: 'G.K. Chesterton',
+    title: null,
   },
   {
-    quote: 'Being ignorant is not so much a shame, as being unwilling to learn.',
+    text: 'Being ignorant is not so much a shame, as being unwilling to learn.',
     author: 'Benjamin Franklin',
+    title: null,
   }
 ];
 
@@ -60,6 +61,11 @@ const BANNER =
 
 const VERSION = "0.1";
 
+function getRandomQuote(): Quote {
+  var i = Math.floor(Math.random() * QUOTES.length);
+  return QUOTES[i];
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -69,8 +75,7 @@ export class AppComponent {
   title = 'Legendary Fiesta';
   state: State;
 
-  quote = "There are many things of which a wise man might wish to be ignorant.";
-  author = "Ralph Waldo Emerson";
+  quote = getRandomQuote();
 
   constructor(
     private stateService: StateService,

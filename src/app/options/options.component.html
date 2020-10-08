@@ -1,14 +1,16 @@
-<div>
-  <blockquote class="blockquote">
-    <p class="mb-0">Nothing is eternal. Eternal is darkness. Darkness is bliss.</p>
-    <footer class="blockquote-footer">Kittekat Ocelotson, <cite title="Source Title">The Catzars of Dominion</cite></footer>
-  </blockquote>
-  <hr/>
-  <p>Reset will <strong>totally wipe</strong> all your progress.</p>
-  <p>It's probably a <em>good idea</em> to refresh your browser after you reset.</p>
+<div class="row">
+  <div class="col-sm-12">
+    <blockquote class="blockquote">
+      <p class="mb-0">{{quote.text}}</p>
+      <footer class="blockquote-footer">{{quote.author}}<span *ngIf="quote.title">, <cite title="Source Title">{{quote.title}}</cite></span></footer>
+    </blockquote>
+    <hr/>
+    <p>Reset will <strong>totally wipe</strong> all your progress.</p>
+    <p>It's probably a <em>good idea</em> to refresh your browser after you reset.</p>  
+  </div>
 </div>
 <div class="row">
-  <div class="col-3">
+  <div class="col-7">
     <button type="button" class="btn btn-primary btn-block btn-danger" (click)="reset()">
       Reset
     </button>          
