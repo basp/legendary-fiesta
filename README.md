@@ -1,2 +1,2 @@
 # Legendary Fiesta (Big Bang Cats)
-It's an idle game but also active. You don't know what you're doing until you do and then you don't. Introducing crazy cats and weird lore.We present a story but not an ending. Your quest is to uncover the answer to life the universe and everything.
+It's an idle game that can be played actively as well. You don't know what you're doing until you do and then you don't. Introducing crazy cats and weird lore. We present a story but not an ending. Your quest is to uncover the answer to life the universe and everything.
